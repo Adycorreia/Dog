@@ -30,4 +30,14 @@ public class DogController {
         dogService.deleteDog(dogID);
     }
 
+    @PutMapping (path="{dogID}")
+    public void updateDog(
+            @PathVariable("dogID") Long DogID,
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String origem,
+            @RequestParam(required = false) Integer idade
+       ) {
+        dogService.updateDog(DogID,nome,origem,idade);
+    }
+
 }
